@@ -32,6 +32,17 @@ Similar approach we can see at:
 * Redis for cache storage.
 * Spring Security/JWT login and authorization.
 
+## Explanation
+* Gateway: The API Gateway acts as a single entry point for all the client requests. In your case, it will handle requests from students or course owners and route them to the appropriate microservice (e.g., Login Service, Courses Service).
+* Cache: will store frequently accessed data like course details and user profiles, reducing the need for repeated database queries. This will significantly improve response times and enhance the user experience, especially for static or infrequently updated content.
+* Service Discovery: Service Discovery will allow microservices to dynamically discover the addresses of other services, enabling communication between services without hardcoding endpoints. For example, the Login Service can discover the Course Service without needing to know its exact IP address. This is useful for scaling, as services can be added or removed without manual updates.
+* Status Endpoints: provide health checks for the Gateway and Service Discovery systems, allowing you to monitor the health and availability of services. These endpoints typically return status codes like HTTP 200 for healthy services and HTTP 500 when a service is down, helping ensure system reliability.
+* Load Balancing: In Round Robin Load Balancing, requests are distributed evenly across multiple replicas of a service. This would mean if you have 4 instances of the Course Service, the Gateway will forward each request to the next instance in line. This ensures that no single instance is overwhelmed with too many requests.
+* Circuit Breaker: If a certain number of consecutive failures (like 3 errors) occur within a given timeout limit, the circuit breaker will "trip" and prevent further calls to that service. This could mean that if the Course Service is down, the Login Service will stop sending requests to it until it recovers.
+* Unit Testing: For example, write tests for the Login Service to verify that user authentication, JWT generation, and role-based access work properly. Tests would simulate different scenarios, ensuring that each microservice behaves correctly in isolation.
+* gRPC: microservices will need to communicate with each other. Instead of using REST over HTTP, which can introduce additional overhead, gRPC offers a more efficient, low-latency alternative for service-to-service communication.
+* Service Load: will allow me to efficiently distribute requests to the various microservices, particularly the ones handling high-traffic operations like the Courses Service and Student Service.
+* Circuit Breaker, Remove Service: will automatically remove a failing service, like the Courses Service, from the available pool after repeated failures, preventing further requests from reaching it. This ensures the system remains stable, and fallback mechanisms can provide alternative responses or notifications until the service recovers.
 
 ## Design Data Management:
 ### User Login Service
