@@ -19,7 +19,8 @@ Similar approach we can see at:
 ## Service Boundaries:
 * Login Students service will contain student authentication, session management, it will be based JWT Bearer.
 * Courses Service there will be published, updated, saw and separated the courses.
-![PAD Lab_1](https://github.com/user-attachments/assets/c1d56134-957d-421c-b07c-57f479ac71f9)
+![image](https://github.com/user-attachments/assets/bf33e404-e027-4de3-a31f-07639f817955)
+
 
 
 ## Technology Stack and Communication Patterns:
