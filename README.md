@@ -222,8 +222,11 @@ Services will be deployed in Docker containers, providing isolation for each and
 I'll use a strong microservices architecture in my project to guarantee high availability, dependability, and effective data management. I'll utilize load balancers, failover techniques, and a circuit breaker to prevent overloading and promptly identify failing services in order to maintain service high availability. Consistent hashing will guarantee a balanced distribution of data for caching, and cache high availability will offer redundancy to guarantee quick and continuous data access. I'll use Long-Running Saga Transactions for intricate workflows and Two-Phase Commits for transactional consistency while managing complicated, dispersed activities. In the event of database problems, the system can smoothly transition to a backup thanks to the redundancy added by database replication with failover. For centralized logging and analysis, I'll utilize the ELK Stack (Elasticsearch, Logstash, and Kibana), which makes it simple to find mistakes or performance bottlenecks. Lastly, historical data will be stored in a data warehouse, allowing for in-depth analysis for insights and decision-making. When combined, these technologies produce a scalable, robust infrastructure that can handle demanding applications.
 ## Running and Testing App
 I. First of all we will run status endpoints to confirm that app is working
+
 II. After that we will create our first element, in our case a video.
+
 III. After creating a video we need to create a user and asign video id to user object. This is our second microservice.
+
 IV. For confirmation that both microservices work we will request video information using new user id.
 ## New Diagram
 ![PAD Lab_1](https://github.com/user-attachments/assets/510ae890-5f86-4a35-ba40-0131c8eb884e)
