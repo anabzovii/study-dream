@@ -227,6 +227,10 @@ Lastly, historical data will be stored in a data warehouse, allowing for in-dept
 
 
 ## Running and Testing App
+
+docker-compose docker-compose.yml up --build  This command run docker-compose.yml file that dockerize gateway, service-discovery and my 2 microcervices with their DB.
+Run docker-compose docker-compose.yml up --build  This command run docker-compose.yml file that dockerize gateway, service-discovery and my 2 microcervices with their DB.
+
 I. First of all we will run status endpoints to confirm that app is working
 
 II. After that we will create our first element, in our case a video.
